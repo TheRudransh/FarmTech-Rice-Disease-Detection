@@ -18,7 +18,7 @@ Rice is one of the most important staple crops in the world, particularly in Sou
 
 ## 🚀 Demo
 
-![FarmTech Demo](assets/demo.png)
+![FarmTech Demo](/Users/rudranshgarg/FarmTech/demo.png)
 
 > Upload a rice leaf image → Get instant disease diagnosis → Follow prevention steps
 

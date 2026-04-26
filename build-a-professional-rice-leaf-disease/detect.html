@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detect Disease | FarmTech</title>
+    <meta
+      name="description"
+      content="Upload a rice leaf image and display disease prediction results."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detect-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="FarmTech home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M20.4 3.6C12.7 4.1 6.7 7.9 4 14.1c2.3-1.6 5-2.7 8-3.1-3.2 1.3-5.7 3.5-7.4 6.4.8 1.6 2 2.8 3.6 3.6 6.7-3.2 11.7-9.2 12.2-17.4Z" />
+          </svg>
+        </span>
+        <span>FarmTech</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#how-it-works">How it works</a>
+        <a class="active" href="detect.html">Detect</a>
+      </nav>
+    </header>
+
+    <main class="detect-main">
+      <section class="page-intro">
+        <p class="eyebrow">Leaf diagnosis workspace</p>
+        <h1>Upload a rice leaf image.</h1>
+        <p>
+          The image is sent to <span>http://localhost:5000/predict</span> and the
+          model response is rendered as a field-ready disease report.
+        </p>
+      </section>
+
+      <section class="detect-layout" aria-label="Detection workspace">
+        <form class="upload-panel" id="uploadForm">
+          <input id="imageInput" name="image" type="file" accept="image/*" hidden />
+          <label class="dropzone" id="dropzone" for="imageInput" tabindex="0">
+            <span class="upload-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3v11m0-11 4.5 4.5M12 3 7.5 7.5M5 14v4a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-4" />
+              </svg>
+            </span>
+            <strong>Drop a rice leaf image here</strong>
+            <span>or browse from your device</span>
+          </label>
+
+          <div class="preview-wrap" id="previewWrap" hidden>
+            <img id="previewImage" alt="Selected rice leaf preview" />
+            <div>
+              <strong id="fileName">Selected image</strong>
+              <span id="fileSize"></span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button button-primary" id="submitButton" type="submit" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14m-6-6 6 6-6 6" />
+              </svg>
+              Analyze Leaf
+            </button>
+            <button class="button button-soft" id="resetButton" type="button" disabled>
+              Clear
+            </button>
+          </div>
+          <p class="status-message" id="statusMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="results-panel" id="resultsPanel" hidden>
+          <div class="result-topline">
+            <div>
+              <p class="eyebrow">Detected disease</p>
+              <h2 id="diseaseName">Blast</h2>
+            </div>
+            <span class="severity-badge" id="severityBadge">High</span>
+          </div>
+
+          <div class="confidence-block">
+            <div class="confidence-label">
+              <span>Confidence</span>
+              <strong id="confidenceValue">81.1%</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <span id="confidenceBar"></span>
+            </div>
+          </div>
+
+          <div class="results-section">
+            <h3>Prevention steps</h3>
+            <ol class="prevention-list" id="preventionList"></ol>
+          </div>
+
+          <div class="results-section">
+            <h3>Class probabilities</h3>
+            <div class="probability-chart" id="probabilityChart"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js?v=3"></script>
+  </body>
+</html>

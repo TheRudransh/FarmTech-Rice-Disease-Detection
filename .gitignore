@@ -1,0 +1,7 @@
+*.keras
+*.h5
+rice-leaf-disease-riceguard-19k-cleaned/
+.venv/
+.venv311/
+__pycache__/
+.DS_Storegit 
